@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+/* Custom styles for animations */
+.highlight-animation {
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight-animation::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: rgba(254, 240, 138, 0.5); /* Yellow highlight */
+  z-index: -1;
+  transition: width 1.5s ease-in-out;
+}
+
+.highlight-animation.active::after {
+  width: 100%;
+}
+
+/* Custom highlighter styles */
+.highlighter {
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.highlighter:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+.annotation-tag {
+  transform: translateY(5px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.highlighter:hover .annotation-tag {
+  transform: translateY(0);
+  opacity: 1;
+}
